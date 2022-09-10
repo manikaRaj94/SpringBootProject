@@ -1,8 +1,11 @@
 package com.bugtracking.eniity;
 
+import lombok.Data;
+
 import javax.persistence.*;
 import java.io.Serializable;
 
+@Data
 @Entity
 @Table(name = "Release_tbl")
 public class Release implements Serializable {
@@ -11,42 +14,12 @@ public class Release implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "release_id")
-    private int releaseId;
+    private long releaseId;
     private String description;
 
     @Column(name = "release_date")
     private String releaseDate;
 
-    @Override
-    public String toString() {
-        return "Release{" +
-                "releaseId=" + releaseId +
-                ", description='" + description + '\'' +
-                ", releaseDate='" + releaseDate + '\'' +
-                '}';
-    }
 
-    public String getDescription() {
-        return description;
-    }
 
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public int getReleaseId() {
-        return releaseId;
-    }
-
-    public void setReleaseId(int releaseId) {
-        this.releaseId = releaseId;
-    }
-
-    public String getReleaseDate() {
-        return releaseDate;
-    }
-
-    public void setReleaseDate(String releaseDate) {
-        this.releaseDate = releaseDate;
-    }
 }
